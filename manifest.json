@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "name": "fOoOcus",
+    "version": "1.0",
+    "description": "Your personal AI study partner",
+    "icons": {
+      "48": "icons/fOoOcus.png"
+    },
+  
+    "permissions": [
+      "alarms",
+      "tabs",
+      "storage",
+      "background"
+    ],
+  
+    "page_action": {
+      "default_icon": "icons/fOoOcus.png",
+      "default_title": "FOoOcus"
+    },
+  
+    "background": {
+      "scripts": ["background.js"]
+    }
+}
