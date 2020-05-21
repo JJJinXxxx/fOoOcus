@@ -3,23 +3,33 @@
     "name": "fOoOcus",
     "version": "1.0",
     "description": "Your personal AI study partner",
-    "icons": {
-      "48": "icons/fOoOcus.png"
+    "icons":
+	{
+		"48": "img/fOoOcus.png"
     },
-  
-    "permissions": [
-      "alarms",
-      "tabs",
-      "storage",
-      "background"
-    ],
-  
-    "page_action": {
-      "default_icon": "icons/fOoOcus.png",
-      "default_title": "FOoOcus"
-    },
-  
     "background": {
-      "scripts": ["background.js"]
-    }
+		"scripts": ["background.js"]
+	},
+    "browser_action": {
+		"default_icon": "img/fOoOcus.png",	
+		"default_title": "fOoOcus",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": [ {
+		"js": [ "inject.js" ],
+		"matches": [ "http://*/*", "https://*/*" ],
+		"run_at": "document_start"
+	 } ],
+	"permissions": [
+		"contextMenus",
+		"tabs",
+		"http://*/*",
+        "https://*/*",
+        "alarms",
+        "tabs",
+        "storage",
+         "background"
+    ]
+  
+	
 }
