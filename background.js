@@ -7,3 +7,4 @@
    桌面（浏览器）宠物
 */
 var focused = false;
+var userFace = null;
