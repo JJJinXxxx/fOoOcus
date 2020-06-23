@@ -1,9 +1,67 @@
+<!-- extension的主界面 -->
+<!-- 前端部分TODO LIST -->
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>fOoOcus</title>
-  </head>
-  <body>
-    <button id="open_url_new_tab">HomePage</button>
-    <script src="popup.js"></script>
-  </body>
+
+<head>
+	<title>fOoOcus</title>
+    <meta charset="UTF-8" />
+    <!-- 引入样式 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.2/theme-chalk/index.css" rel="stylesheet">
+    <script defer src="popup.js"></script>
+    <style lang="less">
+        body{
+            height: 250px;
+            width: 250px;
+        }
+        .text {
+            font-size: 14px;
+        }
+
+        .item {
+            margin-bottom: 18px;
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            display: table;
+            content: "";
+        }
+        .clearfix:after {
+            clear: both
+        }
+        .box-card span {
+            font-size: 20px;
+        }
+        .el-card__body {
+            padding: 20px 20px 10px 20px;
+        }
+        .el-radio{
+            display: block;
+            margin-bottom: 5px;
+        }
+        .el-button {
+            margin-top: 5px;
+            margin-left: 65px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <el-card class="box-card">
+                <div slot="header" class="clearfix">
+                  <span>请选择番茄钟模式</span>
+                </div>
+                <el-radio v-for="item in options" v-model="mode" :label="item.value" :text-color="item.color" >{{ item.lable }}</el-radio>
+              </el-card>
+              <el-button type="primary" round id="open_url_new_tab">HomePage</el-button>
+        </div>
+    </div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<!-- import JavaScript -->
+<script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.2/index.js"></script>
 </html>

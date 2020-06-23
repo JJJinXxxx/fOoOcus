@@ -6,18 +6,127 @@
 <head>
 	<title>fOoOcus</title>
     <meta charset="UTF-8" />
+    <!-- 引入样式 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.2/theme-chalk/index.css" rel="stylesheet">
     <script defer src="face-api.js"></script>
     <script defer src="homePage.js"></script>
-    <style>
+    <style lang="less">
+        body{
+            margin: 0px;
+        }
         canvas{
             position: absolute;
+            z-index: 100000;
         }
+        .container {
+            height: 100vh;
+            display: flex;
+            /* text-align: center; */
+        }
+        .container .sidebar{
+            height: 100vh;
+            flex:1;
+            background-color: #c1cbd7;
+        }
+        .container .sidebar .el-menu{
+            top: 50%;
+            transform: translate( 0,-50%);
+            background-color: transparent;
+            margin-left: 30px;
+        }
+        .container .sidebar .el-menu .el-menu-item{
+            margin-bottom: 20px;
+            border-radius: 20px 0 0 20px;
+            color: #909399;
+        }
+        .main-contain1{
+            flex:8;
+        }
+        .main-contain1 .main-contain-top img{ 
+            height: 100%;
+            width: 50%;
+        }
+        .main-contain1 .main-contain-bottom img{ 
+            height: 100%;
+            width: 50%;
+        }
+        .main-contain1 .main-contain-top{
+            height: 50vh;
+            width: 800px;
+            background-color: antiquewhite;
+            display: -webkit-flex;
+        }
+        .main-contain1 img{ 
+            height: 100%;
+            width: 50%;
+        }
+        .main-contain1 .main-contain-bottom{
+            height: 50vh;
+            background-color: aliceblue;
+            display: -webkit-flex;
+        }
+        .main-contain1 .main-contain-bottom .button-group{ 
+            justify-content: center; 
+            align-items: center; 
+            display: -webkit-flex;
+            margin: 0 auto;
+        }
+        .right-contain{
+            flex:3;
+            background-color: aquamarine;
+        }
+
     </style>
 </head>
 
 <body>
-    <button id="startMonitor">Start Monitor</div>
-    <button id="stopMonitor">Stop</button>
+    <div id="app">
+        <div class="container">
+            <div class="sidebar">
+                <el-menu>
+                    <el-menu-item index="1">
+                        <i class="el-icon-location"></i>
+                        <span slot="title">Homepage</span>
+                    </el-menu-item>
+                    <el-menu-item index="2">
+                        <i class="el-icon-menu"></i>
+                        <span slot="title">Report</span>
+                    </el-menu-item>
+                    <el-menu-item index="3">
+                        <i class="el-icon-document"></i>
+                        <span slot="title">FAQ</span>
+                    </el-menu-item>
+                    <el-menu-item index="4">
+                        <i class="el-icon-setting"></i>
+                        <span slot="title">Website Blocklist</span>
+                    </el-menu-item>
+                </el-menu>
+            </div>
+            <div class="main-contain1">
+                <div class="main-contain-top">
+                    
+                </div>
+                <div class="main-contain-bottom">
+                    <div class="button-group">
+                        <el-button type="primary" round id="startMonitor">Start Monitor</el-button>
+                        <el-button round id="stopMonitor">Stop</el-button>
+                    </div>
+                        <el-dialog
+                            title="查看图片"
+                            append-to-body>
+                            <canvas width="940" height="570"></canvas>
+                        </el-dialog>
+                    <!-- <button id="open_url_new_tab">HomePage</button> -->
+                        <!-- <el-button type="primary" id="startMonitor">Start Monitor</el-button>
+                        <el-button type="success" id="stopMonitor">Stop</el-button> -->
+                </div>
+            </div>
+            <div class="right-contain">
+            </div>
+    </div>
 </body>
-
+<!-- import Vue before Element -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<!-- import JavaScript -->
+<script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.2/index.js"></script>
 </html>
