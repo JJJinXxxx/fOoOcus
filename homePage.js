@@ -2,6 +2,7 @@
  * Face recognition to detect user's emotion
  * and check if the user is concentrated
  */
+
 var app = new Vue({
     el: '#app',
     data: function() {
@@ -13,6 +14,7 @@ var isHere = true;
 var isConcentrated = true;
 const video = document.createElement("video");
 var mediaStream = null;
+var studyImage = document.getElementById("studyStatus");
 
 function activeIt(){
   navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
@@ -65,11 +67,12 @@ function activeIt(){
 });}
 
 function getStudyStatus(){
-    var studyImage = document.getElementById("studyStatus");
     if(!isConcentrated || !isHere){
-        studyImage.src="img/Distracted.png";
+        studyImage.src="img/detectNotFocus.gif";
+        studyImage.src='img/distracted.png';
     }else{
-        studyImage.src="img/Focus.png";
+        studyImage.src="img/detectFocus.gif";
+        studyImage.src='img/focus.png';
     }
 }
 
