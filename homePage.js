@@ -2,11 +2,17 @@
  * Face recognition to detect user's emotion
  * and check if the user is concentrated
  */
+var app = new Vue({
+    el: '#app',
+    data: function() {
+        return { visible: false }
+    }
+    })
 
 var isHere = true;
 var isConcentrated = true;
 const video = document.createElement("video");
-var mediaStream;
+var mediaStream = null;
 
 function activeIt(){
   navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
@@ -20,11 +26,6 @@ function activeIt(){
         const detections=await faceapi.detectAllFaces(video,new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
         const resizedDetections = faceapi.resizeResults(detections,displaySize);
         canvas.getContext("2d").clearRect(0,0,canvas.width,canvas.height);
-        // Waiting for deleting
-        document.body.appendChild(canvas);
-        faceapi.draw.drawDetections(canvas,resizedDetections);
-        faceapi.draw.drawFaceLandmarks(canvas,resizedDetections);
-        faceapi.draw.drawFaceExpressions(canvas,resizedDetections);
         // Check whether webcam can capture faces
         if(resizedDetections && Object.keys(resizedDetections).length > 0){
             isHere = true;
@@ -50,15 +51,27 @@ function activeIt(){
             const distRightY = Math.abs(nose[1]-rightPupil[1]);
             const absDisX = Math.abs(distLeftX-distRightX);
             const absDisY = Math.abs(distLeftY-distRightY);
-            isConcentrated = absDisX <= 33 && absDisY <= 9;
+            isConcentrated = absDisX <= 50 && absDisY <= 20;
+            console.log("Everything works");
+            getStudyStatus();
         }else{
             // Unable to detect users
             isHere=false; 
+            getStudyStatus();
         }
         
-      },100)
+      },400)
   })
 });}
+
+function getStudyStatus(){
+    var studyImage = document.getElementById("studyStatus");
+    if(!isConcentrated || !isHere){
+        studyImage.src="img/Distracted.png";
+    }else{
+        studyImage.src="img/Focus.png";
+    }
+}
 
 function getTop(arr){
     var yMin = -1;
@@ -91,7 +104,11 @@ Promise.all([
         activeIt();
     }),
     stopMo.addEventListener('click',function(){
-        if(mediaStream.active = true){
-            mediaStream.getTracks()[0].stop();
-    }})
+        if(mediaStream !== null){
+            if(mediaStream.active = true){
+                mediaStream.getTracks()[0].stop();
+        }
+
+        }
+    })
 )
