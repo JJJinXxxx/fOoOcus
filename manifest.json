@@ -30,7 +30,7 @@
         "storage",
 		"background"
 	],
-	"content_security_policy": "script-src 'self' 'unsafe-eval' https://cdn.bootcss.com https://cdn.jsdelivr.net/npm/vue@2.6.11 https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.2/index.js https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js; object-src 'self'"
+	"content_security_policy": "script-src 'self' 'unsafe-eval' https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js https://cdn.bootcss.com https://cdn.jsdelivr.net/npm/vue@2.6.11 https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.2/index.js https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js; object-src 'self'"
   
 	
 }
