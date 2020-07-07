@@ -1,12 +1,19 @@
+var app = new Vue({
+    el: '#app',
+    data: function() {
+        return { visible: false }
+    }
+    });
+
+var homepage = document.getElementById("homepage");
+homepage.addEventListener('click',function(){
+    console.log("I'm here");
+    chrome.tabs.update({url:"/homePage.html"});
+});
+
 chrome.storage.sync.get(['key'],function(result){
     var dataStored = result.key;
     console.log(dataStored);
-    var app = new Vue({
-        el: '#app',
-        data: function() {
-            return { visible: false }
-        }
-        });
     var startTime = null;
     var endTime = null;
     var timeData = [];
@@ -16,6 +23,10 @@ chrome.storage.sync.get(['key'],function(result){
     var adviseButton = document.getElementById("adviseButton");
     var reportButton = document.getElementById("reportButton");
     var myChart = echarts.init(document.getElementById('main'));
+    adviseButton.addEventListener('click',function(){
+        var suggestions=document.getElementById("suggestion");
+        suggestions.innerHTML = "Get organized and try to study in the morning instead of evening since you are distracted a lot at that time."
+    })
 
      
     var option = {
@@ -50,6 +61,7 @@ chrome.storage.sync.get(['key'],function(result){
     };
     myChart.setOption(option);
     console.log(dataStored === "undefined");
+
     if(dataStored ===null || typeof dataStored === "undefined"){
         console.log("Nothing happens");
     }else{
@@ -84,12 +96,7 @@ chrome.storage.sync.get(['key'],function(result){
             slot2.innerHTML = dataStored[hardestSlot][1];
             startStudyTime.innerHTML=startTime;
             stopStudyTime.innerHTML =endTime;
-            totalStudyTime.innerHTML = totalTime/60000;
-        })
-
-        adviseButton.addEventListener('click',function(){
-            var suggestions=document.getElementById("suggestion");
-            suggestions.innerHTML = "Get organized and try to study in the morning instead of evening since you are distracted a lot at that time."
+            totalStudyTime.innerHTML = totalTime/60000 + " mintues";
         })
 
 

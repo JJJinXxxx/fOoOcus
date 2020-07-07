@@ -53,6 +53,8 @@
             margin-bottom: 20px;
             align-self: center;
         }
+
+        
         
 
     </style>
@@ -63,13 +65,13 @@
         <div class="container">
             <div class="sidebar">
                 <el-menu>
-                    <el-menu-item index="1">
+                    <el-menu-item index="1" id="homepage">
                         <i class="el-icon-location"></i>
                         <span slot="title">Homepage</span>
                     </el-menu-item>
-                    <el-menu-item index="2">
+                    <el-menu-item index="2" id="report">
                         <i class="el-icon-menu"></i>
-                        <span slot="title" id="report">Report</span>
+                        <span slot="title">Report</span>
                     </el-menu-item>
                     <el-menu-item index="3">
                         <i class="el-icon-document"></i>
@@ -96,23 +98,22 @@
                               </el-row>
                               <el-row :gutter="10">
                                 <el-col :span="13"><span>We found you start studying at</span></el-col>
-                                <el-col :span="4"><span style="text-align:center" id="startStudyTime">8:00</span></el-col>
+                                <el-col :span="4"><span style="text-align:center;color:rgb(93, 122, 154)" id="startStudyTime">8:00</span></el-col>
                               </el-row>
                               <el-row :gutter="10">
                                 <el-col :span="13"><span>And then you stop studying at</span></el-col>
-                                <el-col :span="4"><span style="text-align:center"   id="stopStudyTime">20:00</span></el-col>
+                                <el-col :span="4"><span style="text-align:center;color:rgb(93, 122, 154)"   id="stopStudyTime">20:00</span></el-col>
                               </el-row>
                               <el-row :gutter="10">
                                 <el-col :span="3"><span>From</span></el-col>
-                                <el-col :span="4"><span style="text-align:center"  id="slot1">12:00</span></el-col>
+                                <el-col :span="4"><span style="text-align:center;color:rgb(93, 122, 154)"  id="slot1">12:00</span></el-col>
                                 <el-col :span="2"><span>to</span></el-col>
-                                <el-col :span="4"><span style="text-align:center"  id="slot2">14:00</span></el-col>
+                                <el-col :span="4"><span style="text-align:center;color:rgb(93, 122, 154)"  id="slot2">14:00</span></el-col>
                                 <el-col :span="16"><span>You study very hard during this time!</span></el-col>
                               </el-row>
                               <el-row :gutter="10">
                                 <el-col><span>The total time you spent on study is approximately</span></el-col>
-                                <el-col :span="12"><span style="text-align:center" id="totalTime">320</span></el-col>
-                                <el-col :span="4"><span>mintues</span></el-col>
+                                <el-col><span style="text-align:center ;font-size: 15px;color:rgb(93, 122, 154)" id="totalTime">320 mintues</span></el-col>
                               </el-row>
                               <el-row :gutter="10">
                                 <el-col><span style="text-align:center" id="suggestion">Do you want some suggestions to imporve your study efficiency? If so, You can click the "Advise" button to update our advice here :P</span></el-col>
