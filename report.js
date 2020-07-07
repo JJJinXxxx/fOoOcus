@@ -3,8 +3,9 @@ var app = new Vue({
     data: function() {
         return { visible: false }
     }
-    });
-
+});
+var emotionArray = [0,0,0,0,0,0,0];
+var emotion = document.getElementById("emotion");
 var homepage = document.getElementById("homepage");
 var faq = document.getElementById("faq");
 homepage.addEventListener('click',function(){
@@ -78,9 +79,44 @@ chrome.storage.sync.get(['key'],function(result){
             concentrationData.push(dataStored[i][3]);
             concentrationData.push(0);
             totalTime = totalTime + dataStored[i][2];
+            if(dataStored[i][4]==='neutral'){
+                emotionArray[0]++;
+            }else if(dataStored[i][4]==='happy'){
+                emotionArray[1]++;
+            }else if(dataStored[i][4]==='sad'){
+                emotionArray[2]++;
+            }else if(dataStored[i][4]==='angry'){
+                emotionArray[3]++;
+            }else if(dataStored[i][4]==='fearful'){
+                emotionArray[4]++;
+            }else if(dataStored[i][4]==='disgusted'){
+                emotionArray[5]++;
+            }else{
+                emotionArray[6]++;
+            }
             if(dataStored[i][3] > dataStored[hardestSlot][3]){
                 hardestSlot = i;
             }
+        }
+
+        function getEmotion(num){
+            if(num===0) return 'neutral';
+            if(num===1) return 'happy';
+            if(num===2) return 'sad';
+            if(num===3) return 'angry';
+            if(num===4) return 'fearful';
+            if(num===5) return 'disgusted';
+            if(num===6) return 'surprised';
+        }
+
+        function getNum(arr){
+            var i = 0;
+            for(var j = 0; j < arr.length; j++){
+                if(arr[j]>arr[i]){
+                    i = j;
+                }
+            }
+            return i;
         }
 
         reportButton.addEventListener('click',function(){
@@ -102,6 +138,7 @@ chrome.storage.sync.get(['key'],function(result){
             startStudyTime.innerHTML=startTime;
             stopStudyTime.innerHTML =endTime;
             totalStudyTime.innerHTML = totalTime/60000 + " mintues";
+            emotion.innerHTML = getEmotion(getNum(emotionArray));
         })
 
 

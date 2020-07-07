@@ -21,6 +21,7 @@
 		"run_at": "document_start"
 	 } ],
 	"permissions": [
+		"webRequest", "webRequestBlocking",
 		"contextMenus",
 		"tabs",
 		"http://*/*",

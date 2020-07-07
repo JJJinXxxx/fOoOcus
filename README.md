@@ -5,13 +5,14 @@
 <p>A chrome extension which allows you to monitor yourself to imporve your study efficiency and learn anything with your own cartoon partner. </p>
 
 ## How to start to use
-You can either run the following command in terminal
+<p>Step 1: You can either download the zip file and uncompress it or run the following command in terminal:
 ```bash
 git clone https://github.com/shawPLUSroot/fOoOcus.git
-```
-Or you may directly download the zip file. After uncompressing fOoOcus.zip, please open your chrome browser. Next, go to chrome://extensions/ and select the Developer mode
+```</p>
+
+<p>Step 2: Please open your chrome browser. Next, go to chrome://extensions/ and enable Developer Mode by clicking the toggle switch next to Developer mode.</p>
 <img src="img/intro.png">
-Then click the Load unpacked extension to import your fOoOcus file
+<p>Step 3: Now your browser should be like the image below. Click the Load unpacked button and select the extension fOoOcus directory from where it was cloned to</p>
 <img src="img/intro1.png">
 
 ## Inspiration

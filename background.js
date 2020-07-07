@@ -1,10 +1,22 @@
-/* 
-   后端部分 
-   TODO LIST
-   多形态、多模式学习计时器
-   笔记中心
-   学习状态鉴定
-   桌面（浏览器）宠物
-*/
-var focused = false;
-var userFace = null;
+function blockAll(){
+  chrome.webRequest.onBeforeRequest.addListener(
+    function(details) { 
+      // console.log(details)
+      return {cancel: true}; 
+    },
+    {urls: 
+      [
+      "*://*.baidu.com/*"]
+    },
+    ["blocking"]
+  );
+ }
+console.log("Reached background.js")
+
+chrome.storage.sync.get(['blockSetting'],function(result){
+    var order = result.blockSetting;
+    console.log(order);
+    if(order ==='blockAll'){
+      blockAll();
+    }
+})

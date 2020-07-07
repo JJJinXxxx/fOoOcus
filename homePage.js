@@ -9,7 +9,7 @@ var app = new Vue({
         return { visible: false }
     }
     })
-
+var emotion = null;
 var isHere = true;
 var isConcentrated = true;
 const video = document.createElement("video");
@@ -23,11 +23,15 @@ var endTime = null;
 var slot = null;
 var concentrationVal = 100;
 var goToReport = document.getElementById("report");
+var website = document.getElementById("website")
 goToReport.addEventListener('click',function(){
     chrome.tabs.update({url:"/report.html"});
 });
 faq.addEventListener('click',function(){
     chrome.tabs.create({url:"https://github.com/shawPLUSroot/fOoOcus/issues"});
+})
+website.addEventListener('click',function(){
+    chrome.tabs.update({url:"/website.html"});
 })
 
 function getTop(arr){
@@ -80,6 +84,7 @@ Promise.all([
                 arr[1] = endTime;
                 arr[2] = slot;
                 arr[3] = concentrationVal;
+                arr[4] = emotion;
                 timeSlots.push(arr);
                 console.log(timeSlots);
                 chrome.storage.sync.set({key: timeSlots},function(){});
@@ -121,7 +126,7 @@ function activeIt(){
               const emotionArray = Object.keys(expressions).filter(
                   item => expressions[item] === maxValue
               );
-              const emotion = emotionArray[0];
+              emotion = emotionArray[0];
               // Get user landmarks
               const landmarks = resizedDetections[0].landmarks;
               const jaw = getTop(landmarks.getJawOutline());
