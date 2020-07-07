@@ -6,10 +6,15 @@ var app = new Vue({
     });
 
 var homepage = document.getElementById("homepage");
+var faq = document.getElementById("faq");
 homepage.addEventListener('click',function(){
     console.log("I'm here");
     chrome.tabs.update({url:"/homePage.html"});
 });
+faq.addEventListener('click',function(){
+    chrome.tabs.create({url:"https://github.com/shawPLUSroot/fOoOcus/issues"});
+})
+
 
 chrome.storage.sync.get(['key'],function(result){
     var dataStored = result.key;
@@ -56,7 +61,7 @@ chrome.storage.sync.get(['key'],function(result){
         }],
         legend: {
             show: true,
-            data:['专注度']
+            data:['Concentration']
         }
     };
     myChart.setOption(option);

@@ -14,6 +14,7 @@ var isHere = true;
 var isConcentrated = true;
 const video = document.createElement("video");
 var mediaStream = null;
+var faq = document.getElementById("faq");
 var studyImage = document.getElementById("studyStatus");
 var timeSlots = new Array();
 var startTime = null;
@@ -25,7 +26,9 @@ var goToReport = document.getElementById("report");
 goToReport.addEventListener('click',function(){
     chrome.tabs.update({url:"/report.html"});
 });
-
+faq.addEventListener('click',function(){
+    chrome.tabs.create({url:"https://github.com/shawPLUSroot/fOoOcus/issues"});
+})
 
 function getTop(arr){
     var yMin = -1;
