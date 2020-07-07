@@ -25,7 +25,7 @@
         .container .sidebar{
             height: 100vh;
             flex:1;
-            background-color: #c1cbd7;
+            background-color: #F4F5F7;
         }
         .container .sidebar .el-menu{
             top: 50%;
@@ -33,23 +33,29 @@
             background-color: transparent;
             margin-left: 30px;
         }
+        
         .container .sidebar .el-menu .el-menu-item{
             margin-bottom: 20px;
             border-radius: 20px 0 0 20px;
-            color: #909399;
+            color: #42536e;
         }
+        .el-menu-item:focus, .el-menu-item:hover {
+            outline: 0;
+            background-color: #dee1e5;
+        }
+
+
+
         .main-contain1{
             flex:8;
         }
         .main-contain1 .main-contain-top{
-            height: 50vh;
+            height: 70vh;
             width: 100%;
             background-color: antiquewhite;
             display: -webkit-flex;
         }
         .main-contain1 .main-contain-bottom{
-            height: 50vh;
-            background-color: aliceblue;
             display: -webkit-flex;
         }
         .main-contain1 .main-contain-bottom .button-group{ 
@@ -60,7 +66,6 @@
         }
         .right-contain{
             flex:3;
-            background-color:#F6F7FB;
         }
 
         .putUserImage img{
