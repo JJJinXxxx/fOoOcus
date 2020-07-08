@@ -6,13 +6,13 @@
 
 ## How to start to use
 Step 1: You can either download the zip file and uncompress it or run the following command in terminal:
-```shellscript
+```bash
 git clone https://github.com/shawPLUSroot/fOoOcus.git
 ```
 
 <p>Step 2: Please open your chrome browser. Next, go to chrome://extensions/ and enable Developer Mode by clicking the toggle switch next to Developer mode.</p>
 <img src="img/intro.png">
-<p>Step 3: Now your browser should be like the image below. Click the Load unpacked button and select the extension fOoOcus directory from where it was cloned to</p>
+<p>Step 3: Now your browser should be like the image below. Click the Load unpacked button and select the extension fOoOcus directory from where it was cloned to.</p>
 <img src="img/intro1.png">
 
 ## Inspiration

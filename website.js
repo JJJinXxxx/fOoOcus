@@ -15,7 +15,7 @@ goToReport.addEventListener('click',function(){
   chrome.tabs.update({url:"/report.html"});
 });
 faq.addEventListener('click',function(){
-  chrome.tabs.create({url:"https://github.com/shawPLUSroot/fOoOcus/issues"});
+  chrome.tabs.create({url:"https://github.com/shawPLUSroot/fOoOcus/issues/5"});
 })
 homepage.addEventListener('click',function(){
   console.log("I'm here");

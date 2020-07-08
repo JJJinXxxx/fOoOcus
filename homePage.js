@@ -29,7 +29,7 @@ goToReport.addEventListener('click',function(){
     chrome.tabs.update({url:"/report.html"});
 });
 faq.addEventListener('click',function(){
-    chrome.tabs.create({url:"https://github.com/shawPLUSroot/fOoOcus/issues"});
+    chrome.tabs.create({url:"https://github.com/shawPLUSroot/fOoOcus/issues/5"});
 })
 website.addEventListener('click',function(){
     chrome.tabs.update({url:"/website.html"});
