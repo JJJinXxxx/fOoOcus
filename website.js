@@ -1,21 +1,23 @@
-var app = new Vue({
-    el: '#app',
-    data: function() {
-        return { visible: false }
+var Main = {
+  data() {
+    return {
+      input: ''
     }
-    })
-var blockAll = document.getElementById("blockAll");
-var blockPart = document.getElementById("blockPart");
+  }
+}
+var Ctor = Vue.extend(Main)
+new Ctor().$mount('#app')
 
-blockAll.addEventListener('click',function(){
-    blockAll.disabled= true;
-    blockPart.disabled=false;
-    console.log("Reached the button");
-    chrome.storage.sync.set({blockSetting: "blockAll"},function(){});
+var homePage = document.getElementById("homepage");
+var faq = document.getElementById("faq");
+var goToReport = document.getElementById("report");
+goToReport.addEventListener('click',function(){
+  chrome.tabs.update({url:"/report.html"});
+});
+faq.addEventListener('click',function(){
+  chrome.tabs.create({url:"https://github.com/shawPLUSroot/fOoOcus/issues"});
 })
-
-blockPart.addEventListener('click',function(){
-    blockAll.disabled= false;
-    blockPart.disabled=true;
-    chrome.storage.sync.set({blockSetting: "blockPart"},function(){});
-})
+homepage.addEventListener('click',function(){
+  console.log("I'm here");
+  chrome.tabs.update({url:"/homePage.html"});
+});

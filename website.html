@@ -44,8 +44,8 @@
             flex:8;
         }
         .main-contain1 .reportOfConcentration{
-            margin-top: 70px;
-            height: 50vh;
+            margin-top: 220px;
+            height: 20vh;
             width: 100%;
             align-self: center;
             text-align: center;
@@ -90,7 +90,19 @@
                 <div class="reportOfConcentration">
                     Website Blocker
                 </div>
-
+                <el-row :gutter="2" style="justify-content: center; 
+                align-items: center; 
+                display: -webkit-flex; margin-bottom: 35px;">
+                    <el-col :span="10" style="margin-right: 20px;">
+                        <el-input id="site" v-model="input" placeholder="Type an url to add or remove from the black list"></el-input>
+                    </el-col>
+                    <el-col :span="1">
+                        <el-button id="addURL" type="success" icon="el-icon-check" circle></el-button>
+                    </el-col>
+                    <el-col :span="1">
+                        <el-button id="removeURL" type="danger" icon="el-icon-delete" circle></el-button>
+                    </el-col>
+                </el-row>
                 <el-row style="justify-content: center; 
                 align-items: center; 
                 display: -webkit-flex;">
@@ -99,11 +111,10 @@
                 <el-row style="justify-content: center; 
                 align-items: center; 
                 display: -webkit-flex;">
-                    <el-button round id="blockPart">Block Fun Websites</el-button>
+                    <el-button round id="blockPart">Block BlackList Websites</el-button>
                 </el-row>
             </div>
-
-            
+    </div>
     </div>
     
 </body>
@@ -111,5 +122,6 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.2/index.js"></script>
 <script src="website.js"></script>
+<script defer src="background.js"></script>
 <!-- import JavaScript -->
 </html>

@@ -14,7 +14,6 @@ var isHere = true;
 var isConcentrated = true;
 const video = document.createElement("video");
 var mediaStream = null;
-var faq = document.getElementById("faq");
 var studyImage = document.getElementById("studyStatus");
 var timeSlots = new Array();
 var startTime = null;
@@ -22,8 +21,10 @@ var startSecond = null;
 var endTime = null;
 var slot = null;
 var concentrationVal = 100;
+var faq = document.getElementById("faq");
 var goToReport = document.getElementById("report");
-var website = document.getElementById("website")
+var website = document.getElementById("website");
+var homepage = document.getElementById("homepage");
 goToReport.addEventListener('click',function(){
     chrome.tabs.update({url:"/report.html"});
 });
@@ -33,6 +34,7 @@ faq.addEventListener('click',function(){
 website.addEventListener('click',function(){
     chrome.tabs.update({url:"/website.html"});
 })
+
 
 function getTop(arr){
     var yMin = -1;

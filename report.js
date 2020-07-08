@@ -8,6 +8,7 @@ var emotionArray = [0,0,0,0,0,0,0];
 var emotion = document.getElementById("emotion");
 var homepage = document.getElementById("homepage");
 var faq = document.getElementById("faq");
+var website = document.getElementById("website");
 homepage.addEventListener('click',function(){
     console.log("I'm here");
     chrome.tabs.update({url:"/homePage.html"});
@@ -15,6 +16,10 @@ homepage.addEventListener('click',function(){
 faq.addEventListener('click',function(){
     chrome.tabs.create({url:"https://github.com/shawPLUSroot/fOoOcus/issues"});
 })
+website.addEventListener('click',function(){
+    chrome.tabs.update({url:"/website.html"});
+})
+
 
 
 chrome.storage.sync.get(['key'],function(result){
