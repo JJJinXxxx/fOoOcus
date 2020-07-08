@@ -51,8 +51,17 @@ if(removeURL){
 }
 
 
-function blockRequest(details) {      
-  return {cancel: true}; 
+function blockRequest(details) {  
+  
+  return {cancel: (details.url.indexOf("https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js") == -1 &&
+                   details.url.indexOf("https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js") == -1 &&
+                   details.url.indexOf("google.com/") == -1 &&
+                   details.url.indexOf("https://cdn.bootcss.com") == -1 &&
+                   details.url.indexOf("https://cdn.jsdelivr.net/npm/vue@2.6.11") == -1 &&
+                   details.url.indexOf("https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.2/index.js") == -1 &&
+                   details.url.indexOf("https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.2/theme-chalk/index.css") == -1 &&
+                   details.url.indexOf("https://fonts.googleapis.com/css2?family=Quicksand&display=swap") == -1
+  )}; 
 }  
 
 
@@ -87,6 +96,7 @@ function blockAllWeb(){
   blockAll.addEventListener('click',function(){
     blockAll.disabled= true;
     blockPart.disabled=false;
+    console.log("Running block All")
     blockAllWeb();
   })
   
@@ -96,9 +106,9 @@ if(blockPart){
   blockPart.addEventListener('click',function(){
     blockAll.disabled= false;
     blockPart.disabled=true;
+    console.log("Running block part");
     blockPartWeb();
   
     
   })
-  
 }

@@ -32,7 +32,7 @@ faq.addEventListener('click',function(){
     chrome.tabs.create({url:"https://github.com/shawPLUSroot/fOoOcus/issues/5"});
 })
 website.addEventListener('click',function(){
-    chrome.tabs.update({url:"/website.html"});
+    chrome.tabs.create({url:"/website.html"});
 })
 
 
